@@ -22,6 +22,4 @@ class Paddle {
   moveLeft() {
     return (this.positionOfX = this.positionOfX - this.velocity);
   }
-
-  hasCollide(bottomPosition, leftPosition, rightPosition) {}
 }
