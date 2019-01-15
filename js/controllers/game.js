@@ -1,31 +1,19 @@
 getElement = (document, elementId) => document.getElementById(elementId);
 addPixelSuffix = dimension => dimension + "px";
 
-const applyElementPreferences = function(
-  document,
-  applyElementPreferences,
-  elementId
-) {
-  let element = getElement(document, elementId);
-  element.style.width = addPixelSuffix(applyElementPreferences.width);
-  element.style.height = addPixelSuffix(applyElementPreferences.height);
-  element.style.marginTop = addPixelSuffix(applyElementPreferences.positionOfY);
-  element.style.marginLeft = addPixelSuffix(
-    applyElementPreferences.positionOfX
-  );
-};
-
-const createElement = function(document, tagName, elementId, elementClass) {
-  let gameWindow = document.createElement(tagName);
-  gameWindow.id = elementId;
-  gameWindow.className = elementClass;
-  return gameWindow;
+const getKeyEvents = function(document, game) {
+  if (event.key == "ArrowRight") game.movePaddleRight();
+  if (event.key == "ArrowLeft") game.movePaddleLeft();
+  applyElementPreferences(document, game.paddle, "paddle_1");
 };
 
 const initializeGameWindow = function() {
   let wall = new Wall(960, 680, 0, 0);
   let body = getElement(document, "body");
-  addWall(body,wall);
+  let wallElement = addWall(body, wall);
+  let paddlePreferences = addPaddle(document, wallElement);
+  let game = new Game(wall, paddlePreferences);
+  wallElement.onkeydown = getKeyEvents.bind(null, document, game);
 };
 
 window.onload = initializeGameWindow;
