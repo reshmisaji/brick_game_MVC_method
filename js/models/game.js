@@ -1,7 +1,8 @@
 class Game {
-  constructor(wall, paddle) {
+  constructor(wall, paddle, ball) {
     this.wall = wall;
     this.paddle = paddle;
+    this.ball = ball;
   }
 
   isInsideRightMargin() {

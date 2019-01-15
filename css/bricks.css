@@ -15,3 +15,12 @@
   border-radius: 50%;
   position: absolute;
 }
+
+.startButton {
+  color: white;
+  background-color: rgb(43, 25, 25);
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  position: absolute;
+}

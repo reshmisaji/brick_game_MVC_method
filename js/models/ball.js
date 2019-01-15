@@ -7,4 +7,9 @@ class Ball {
     this.positionOfY = positionOfY;
     this.positionOfX = positionOfX;
   }
+
+  moveBall() {
+    this.positionOfX = this.positionOfX - this.speedX;
+    this.positionOfY = this.positionOfY - this.speedY;
+  }
 }
